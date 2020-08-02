@@ -12,37 +12,31 @@ I WANT to randomly generate a password that meets certain criteria
 SO THAT I can create a strong password that provides greater security
 ```
 
-## Acceptance Criteria
+## What I did 
 
-```
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN prompted for character types to include in the password
-THEN I choose lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-```
+1. Using the ASCII Printable Characters (https://www.w3schools.com/charsets/ref_html_ascii.asp) to generate the random characters. the *26 + 97 means that there are 26 characters in the alphabet and we are looking at 97 to 122; which are just lowercase letters. Applying the same principle as above *26 + 65 for Uppercase letters since it runs from 65 to 90
 
-The following image demonstrates the application functionality:
+2. I needed to define all the const" 
+const $alphabetCount = 26;
+const $firstLowercase = 97;
+const $firstUppercase = 65;
+const $numberLength = 10;
+const $firstDigit = 48;
+const $passwordMinimumLength = 8;
+const $passwordMaximumLength = 125;
 
-![password generator demo](./Assets/03-javascript-homework-demo.png)
+3. Created an object to randomly run the function each time it's invoked 
 
-## Review
+4. Defnied the functions using the const above
 
-You are required to submit the following for review:
+5. Created a for loop that includes one of the criteria with the length of the value in the length box.
+    5A. Check if the criteria box is checked 
+    5B. Generate the password = length + the criteria by looping through the array by the amount of time in the PasswordLength indicator
+    5C. Get checked values from the check boxes
+    5D. Added the return so the loop would end
+    
+ 6. Added the results of the randomly selected function in the generateRansom object
+ 
+ 7. Added the event listener to the button so that the password appears in the text box
 
-* The URL of the deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+8. Finally added the alert if all the boxes are unchecked
